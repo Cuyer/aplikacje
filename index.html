@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang = "pl">
+   <head>
+    <meta charset="utf-8" />
+    <title>Aplikacje internetowe</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+  
+		
+		
+		<script>
+		
+		function zegarek(){
+    var data = new Date();
+            var godzina = data.getHours();
+            var minuta = data.getMinutes();
+            var sekunda = data.getSeconds();
+            var dzien = data.getDate();
+            var dzienN = data.getDay();
+            var miesiac = data.getMonth();
+            var rok = data.getFullYear();
+           
+            if (minuta < 10) minuta = "0" + minuta;
+            if (sekunda < 10) sekunda = "0" + sekunda;
+           
+            var dni = new Array("niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota");
+            var miesiace = new Array("stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia");
+           
+            var pokazDate = "Dzisiaj jest " + dni[dzienN] + ', ' + dzien + ' ' + miesiace[miesiac] + ' ' + rok + " roku.<br />Godzina " + godzina + ':' + minuta + ':' + sekunda;
+            document.getElementById("zegar").innerHTML = pokazDate;
+           
+            setTimeout(zegarek, 1000);            
+        }        
+		
+		 function PUZ() {
+                var dis = document.getElementById("zegar");
+                if (dis.style.display === "none") {
+                    dis.style.display = "block";
+                    } else {
+                    dis.style.display = "none";
+                }
+            }
+			
+			function Plus(){
+                    kalkulator.wynik.value=parseFloat(kalkulator.liczba1.value)+parseFloat(kalkulator.liczba2.value);
+                    }
+                    
+                    function Minus(){
+                    kalkulator.wynik.value=parseFloat(kalkulator.liczba1.value)-parseFloat(kalkulator.liczba2.value);
+                    }
+                    
+                    function Divide(){
+                    kalkulator.wynik.value=parseFloat(kalkulator.liczba1.value)/parseFloat(kalkulator.liczba2.value);
+                    }
+                    
+                    function Multi(){
+                    kalkulator.wynik.value=parseFloat(kalkulator.liczba1.value)*parseFloat(kalkulator.liczba2.value);
+                    }
+                    
+                    function Silnia(){
+                    
+                    var x=parseFloat(kalkulator.liczba1.value);
+                    var silnia=1;
+                    for(var i=1;i<=x;i++)
+                    {silnia=silnia*i;}
+                    kalkulator.wynik.value=parseFloat(silnia);
+                    }
+                    
+                    function Sqrt(){
+                    kalkulator.wynik.value=Math.sqrt(parseFloat(kalkulator.liczba1.value));
+                    }
+                    
+                    function Poteg(){
+                    kalkulator.wynik.value=parseFloat(kalkulator.liczba1.value)*parseFloat(kalkulator.liczba1.value);
+                    }
+					
+					
+var a="<img src='obraz1.png'>";
+var b="<img src='obraz2.png'>";
+var d="<img src='obraz4.png'>";
+var e="<img src='obraz5.png'>";
+var f="<img src='obraz6.png'>";
+var c="<img src='obraz3.png'>";
+var TabId=['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10'];
+var TabImg=[a,b,d,e,f,b,a,d,f,e];
+var one=0;
+var two=0;
+function Ukryj()
+{
+	for(var i=0;i<10;i++)
+	document.getElementById(TabId[i]).innerHTML=c;
+}
+function Odkryj(x)
+{	
+		for(var i=0;i<10;i++)
+			if(x==document.getElementById(TabId[i])) x.innerHTML=TabImg[i];
+			
+}
+
+
+function Gra(x)
+{	
+	if(one==0)
+	{	Ukryj();
+		Odkryj(x);
+		one=x;}
+	else
+	{Odkryj(x);
+	two=x;
+		if(one!=two)
+		{if(one.innerHTML==two.innerHTML) {one.style.visibility="hidden";
+		two.style.visibility="hidden";}}
+	one=0;
+	}
+	
+}
+
+ 
+</script>
+		
+  </head>
+  <body onload="zegarek()";>
+  
+    <header id="header">
+      <img src="https://i.imgur.com/jLbdEEh.png" id="header-img"/>
+      <nav id="nav-bar">     
+          <a href="#" id="nav-link">Strona Główna</a>
+         <a href="#hero" id="nav-link">Kalkulator</a>
+         <a href="#container" id="nav-link">Memory</a>
+		 <a href="#how-it-works" id="nav-link">Slice</a>
+      </nav>
+    </header>
+    <div class="container"></div>
+    <main>
+      <section id="hero">
+      <form name="kalkulator" class="kt">
+                    <input class="liczba" id="l1" type="text" name="liczba1" placeholder="liczba1"/>
+                    <input class="liczba" id="l2" type="text" name="liczba2" placeholder="liczba2"/>
+                    <input class="cal" type="button" value="+" onclick="Plus()"/>
+                    <input class="cal" type="button" value="-" onclick="Minus()"/>
+                    <input class="cal" type="button" value="/" onclick="Divide()"/>
+                    <input class="cal" type="button" value="*" onclick="Multi()"/>
+                    <input class="cal" type="button" value="!" onclick="Silnia()"/>
+                    <input class="cal" type="button" value="&radic;" onclick="Sqrt()"/>
+                    <input class="cal" type="button" value="²" onclick="Poteg()"/>
+                    
+                    <p>=</p>                    
+                    <input class="liczba" id="wyn" type="text" name="wynik" placeholder="wynik"/>
+                    
+                    </form>
+      </section>
+      
+  <div class="container">
+  
+            <div id="mem" style="margin-top: 60px;">
+                
+               <a class="css-button" style="position: absolute;margin-left: 470px;" onclick="Ukryj()">
+                   
+                    <span>Ukryj</span>
+                   </a>
+                  
+                  
+
+                  <div id="m1" class="mini" style="left:50px;" onclick="Gra(this)"><img src="obraz1.png"></div>
+                  <div id="m2" class="mini" style="left:150px;" onclick="Gra(this)"><img src="obraz2.png"></div>
+                  <div id="m5" class="mini" style="left:250px;" onclick="Gra(this)"><img src="obraz4.png"></div>
+                  <div id="m6" class="mini" style="left:350px;" onclick="Gra(this)"><img src="obraz5.png"></div>
+                  <div id="m7" class="mini" style="left:450px;" onclick="Gra(this)"><img src="obraz6.png"></div>
+                  <div id="m3" class="mini" style="top:200px;left:50px;" onclick="Gra(this)"><img src="obraz2.png"></div>
+                  <div id="m4" class="mini" style="top:200px;left:150px;" onclick="Gra(this)"><img src="obraz1.png"></div>
+                  <div id="m8" class="mini" style="top:200px;left:250px;" onclick="Gra(this)"><img src="obraz4.png"></div>
+                  <div id="m9" class="mini" style="top:200px;left:350px;" onclick="Gra(this)"><img src="obraz6.png"></div>
+                  <div id="m10" class="mini" style="top:200px;left:450px;" onclick="Gra(this)"><img src="obraz5.png"></div>
+
+
+            </div>
+	
+    <section id="how-it-works">
+      
+    </section>
+    
+	
+    <footer>
+    
+	
+	 
+<div id="zegar"></div>
+	
+ <button id = "pu" onclick="PUZ()">pokaż/ukryj zegar</button>
+ 
+ <div class="tlo">Zmień tło 
+            <button onclick="document.body.style.cssText+=';background-color: blue;'">1</button>
+            <button onclick="document.body.style.cssText+=';background-color: black;'">2</button>
+            <button onclick="document.body.style.cssText+=';background-color: #eee;'">3</button>
+			
+			
+      <span>Copyright 2020, </span>
+	  <span>Krystian Chęciński</span>
+    </footer>
+ 
+</body>
